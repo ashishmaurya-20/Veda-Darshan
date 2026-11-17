@@ -1,7 +1,7 @@
 # ==========================================
 # Stage 1: Build Frontend and Backend
 # ==========================================
-FROM node:22-bullseye-slim AS builder
+FROM node:22-slim AS builder
 
 WORKDIR /app
 
@@ -16,11 +16,11 @@ RUN npm run build
 # ==========================================
 # Stage 2: Production Runner
 # ==========================================
-FROM node:22-bullseye-slim AS runner
+FROM node:22-slim AS runner
 
-# Install espeak-ng & Hindi phoneme data for Text-to-Speech
+# Install espeak-ng for Hindi Text-to-Speech
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends espeak-ng espeak-ng-data && \
+    apt-get install -y --no-install-recommends espeak-ng && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
