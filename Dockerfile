@@ -28,11 +28,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=10000
 
-# Install only production dependencies
-COPY package*.json ./
-RUN npm install --omit=dev
-
-# Copy compiled bundles from builder stage
+# Copy node_modules and compiled bundles directly from builder
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/dist-server ./dist-server
 
