@@ -1,0 +1,7 @@
+# Veda Darshan Robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/admin/
+Disallow: /api/tts
+
+Sitemap: https://veda-darshan.com/sitemap.xml

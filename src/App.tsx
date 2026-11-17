@@ -22,7 +22,9 @@ import {
   Twitter,
   Volume2,
   VolumeX,
-  Loader as LoaderIcon
+  Loader as LoaderIcon,
+  Share2,
+  Check
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -502,21 +504,72 @@ function GitaApp() {
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [verseError, setVerseError] = useState<string | null>(null);
   const [showDonateModal, setShowDonateModal] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
 
-  // Audio hook — reads the verse aloud with a female Hindi voice
+  // Audio hook — reads the verse aloud with a resonant Hindi voice
   const { audioState, toggle: toggleAudio, stop: stopAudio } = useVerseAudio();
 
-  // Check for admin route
+  // Check for admin route & deep-linked verse route on hash change
   useEffect(() => {
-    const checkHash = () => {
-      if (window.location.hash === '#admin') {
+    const handleHashRoute = () => {
+      const hash = window.location.hash;
+      if (hash === '#admin') {
         setShowAdminLogin(true);
+        return;
+      }
+      
+      // Parse deep-linked route: #/scriptureId/section/verse
+      const match = hash.match(/^#\/([a-z0-9_]+)\/([0-9]+)\/([0-9]+)/);
+      if (match) {
+        const [, sId, sec, vNum] = match;
+        const matched = SCRIPTURES.find(s => s.id === sId);
+        if (matched) {
+          setCurrentScripture(matched);
+          setCurrentSection(sec);
+          setCurrentVerseNum(vNum);
+        }
       }
     };
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
-    return () => window.removeEventListener('hashchange', checkHash);
+
+    handleHashRoute();
+    window.addEventListener('hashchange', handleHashRoute);
+    return () => window.removeEventListener('hashchange', handleHashRoute);
   }, []);
+
+  // Synchronize URL hash & dynamic page title for SEO & sharing
+  useEffect(() => {
+    if (window.location.hash !== '#admin') {
+      window.history.replaceState(
+        null,
+        '',
+        `#/${currentScripture.id}/${currentSection}/${currentVerseNum}`
+      );
+    }
+    document.title = `${currentScripture.name} ${currentScripture.sectionLabel} ${currentSection}, Verse ${currentVerseNum} — Veda Darshan`;
+  }, [currentScripture, currentSection, currentVerseNum]);
+
+  const handleShareVerse = async () => {
+    const shareUrl = `https://veda-darshan.com/#/${currentScripture.id}/${currentSection}/${currentVerseNum}`;
+    const title = `${currentScripture.name} ${currentScripture.sectionLabel} ${currentSection}:${currentVerseNum}`;
+    const text = verse ? `${verse.sanskrit}\n\n${verse.english}\n\nRead on Veda Darshan:` : 'Read and listen to sacred scriptures on Veda Darshan:';
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text, url: shareUrl });
+        return;
+      } catch (err) {
+        // Fallback to clipboard if share was cancelled or unsupported
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+    } catch (err) {
+      console.warn('Clipboard write failed:', err);
+    }
+  };
 
   // Load progress
   useEffect(() => {
@@ -893,6 +946,28 @@ function GitaApp() {
                           <VolumeX className="w-5 h-5" />
                         ) : (
                           <Volume2 className="w-5 h-5" />
+                        )}
+                      </button>
+                    )}
+
+                    {/* ── Share Verse Button ── */}
+                    {verse && (
+                      <button
+                        onClick={handleShareVerse}
+                        title={copiedLink ? "Link copied to clipboard!" : "Share this verse"}
+                        className={`
+                          relative flex items-center justify-center w-12 h-12 rounded-full
+                          font-bold transition-all duration-200 shadow-md border
+                          ${copiedLink
+                            ? 'bg-green-600 text-white border-green-600 scale-105 shadow-green-200'
+                            : 'bg-white text-orange-600 hover:bg-orange-600 hover:text-white hover:scale-110 border-orange-200'
+                          }
+                        `}
+                      >
+                        {copiedLink ? (
+                          <Check className="w-5 h-5" />
+                        ) : (
+                          <Share2 className="w-5 h-5" />
                         )}
                       </button>
                     )}

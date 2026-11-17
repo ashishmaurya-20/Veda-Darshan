@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://veda-darshan.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Bhagavad Gita Chapters -->
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/1/1</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/2/1</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/3/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/4/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/5/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/6/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/7/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/8/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/9/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/10/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/11/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/12/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/13/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/14/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/15/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/16/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/17/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/bhagavad_gita/18/1</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- Vedas -->
+  <url><loc>https://veda-darshan.com/#/rigveda/1/1</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://veda-darshan.com/#/samaveda/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/yajurveda/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/atharvaveda/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Major Upanishads -->
+  <url><loc>https://veda-darshan.com/#/isha_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/kena_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/katha_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://veda-darshan.com/#/mundaka_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/mandukya_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://veda-darshan.com/#/taittiriya_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/aitareya_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/chandogya_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://veda-darshan.com/#/brihadaranyaka_upanishad/1/1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>
