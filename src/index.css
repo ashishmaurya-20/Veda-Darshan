@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif Devanagari", "Cinzel", serif;
+}
+
+/* Audio button wave animation */
+@keyframes audio-wave {
+  0%   { transform: scaleY(0.4); }
+  50%  { transform: scaleY(1.0); }
+  100% { transform: scaleY(0.4); }
+}
+.audio-wave-bar {
+  display: inline-block;
+  width: 3px;
+  border-radius: 2px;
+  background: currentColor;
+  animation: audio-wave 0.9s ease-in-out infinite;
+}
+.audio-wave-bar:nth-child(2) { animation-delay: 0.15s; }
+.audio-wave-bar:nth-child(3) { animation-delay: 0.30s; }
+.audio-wave-bar:nth-child(4) { animation-delay: 0.45s; }

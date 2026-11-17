@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-server
+.git
+.gitignore
+.env
+.env.local
+.env.*
+!.env.example
+user_data.json
+*.tmp
+*.log
+README.md

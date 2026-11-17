@@ -1,0 +1,8 @@
+== HOW TO ADD YOUR DONATION QR CODE ==
+
+1. Save your payment QR image (UPI / PhonePe / GPay / Paytm) as:
+      public/qr-donate.png
+
+2. That's it! The Donate modal will automatically show it.
+
+Tip: Use a square image, ideally 400x400 px or larger.
