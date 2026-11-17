@@ -6,7 +6,7 @@ FROM node:22-bullseye-slim AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
 COPY . .
 
@@ -30,7 +30,7 @@ ENV PORT=10000
 
 # Install only production dependencies
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # Copy compiled bundles from builder stage
 COPY --from=builder /app/dist ./dist
