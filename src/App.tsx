@@ -133,13 +133,13 @@ function LoginModal({ onLogin, onClose }: { onLogin: (name: string) => void; onC
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        className="relative bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden p-8"
+        className="relative bg-white w-full max-w-md rounded-3xl shadow-2xl p-5 sm:p-8 max-h-[92dvh] overflow-y-auto"
       >
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <UserIcon className="w-8 h-8 text-orange-600" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome to Veda Darshan'}</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{isRegister ? 'Create Account' : 'Welcome to Veda Darshan'}</h2>
           <p className="text-gray-500 mt-2">{isRegister ? 'Register to save your progress' : 'Login to resume your spiritual journey'}</p>
         </div>
 
@@ -238,7 +238,7 @@ function HistoryModal({ history, onClose, onSelect }: {
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        className="relative bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
+        className="relative bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85dvh]"
       >
         <div className="p-6 border-b border-orange-50 flex items-center justify-between bg-white sticky top-0 z-10">
           <div className="flex items-center gap-3">
@@ -334,7 +334,7 @@ function AdminLoginModal({ isOpen, onClose, onLogin }: { isOpen: boolean, onClos
       <motion.div 
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl border border-indigo-50"
+        className="bg-white rounded-3xl p-5 sm:p-8 w-full max-w-md shadow-2xl border border-indigo-50 max-h-[92dvh] overflow-y-auto"
       >
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
@@ -414,9 +414,9 @@ function AdminPage({ onBack }: { onBack: () => void }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-dvh bg-gray-50 p-4 sm:p-6">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8">
           <div className="flex items-center gap-3">
             <ShieldCheck className="w-8 h-8 text-indigo-600" />
             <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
@@ -429,8 +429,8 @@ function AdminPage({ onBack }: { onBack: () => void }) {
           </button>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-          <table className="w-full text-left">
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-x-auto">
+          <table className="w-full min-w-[36rem] text-left">
             <thead className="bg-gray-50 border-b border-gray-100">
               <tr>
                 <th className="px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-widest">User</th>
@@ -718,33 +718,34 @@ function GitaApp() {
   }
 
   return (
-    <div className="min-h-screen bg-orange-50 font-sans text-gray-900">
+    <div className="min-h-dvh bg-orange-50 font-sans text-gray-900">
       {/* Header */}
-      <header className="bg-white border-b border-orange-100 sticky top-0 z-40 px-4 py-3 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-3">
+      <header className="bg-white border-b border-orange-100 sticky top-0 z-40 px-3 sm:px-4 py-2 sm:py-3 flex items-center justify-between gap-2 shadow-sm">
+        <div className="flex items-center gap-2 min-w-0">
           <button 
             onClick={() => setShowSidebar(true)}
-            className="p-2 hover:bg-orange-50 rounded-full transition-colors md:hidden"
+            className="p-2 hover:bg-orange-50 rounded-full transition-colors md:hidden shrink-0"
+            aria-label="Open menu"
           >
             <Menu className="w-6 h-6 text-orange-800" />
           </button>
-          <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Veda Darshan Logo" className="w-10 h-10 rounded-full object-cover shadow-sm border border-orange-200" />
-            <h1 className="text-xl font-bold text-orange-900 tracking-tight">Veda Darshan</h1>
+          <div className="flex items-center gap-2 min-w-0">
+            <img src="/logo.png" alt="Veda Darshan Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover shadow-sm border border-orange-200 shrink-0" />
+            <h1 className="text-base sm:text-xl font-bold text-orange-900 tracking-tight truncate">Veda Darshan</h1>
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1.5 sm:gap-4 shrink-0">
           <button 
             onClick={() => setShowScriptureSelector(true)}
-            className="hidden sm:flex items-center gap-2 bg-orange-100 hover:bg-orange-200 text-orange-800 px-4 py-2 rounded-full font-bold transition-all"
+            className="hidden sm:flex items-center gap-2 bg-orange-100 hover:bg-orange-200 text-orange-800 px-4 py-2 rounded-full font-bold transition-all max-w-[14rem]"
           >
-            <Library className="w-4 h-4" />
-            {currentScripture.name}
+            <Library className="w-4 h-4 shrink-0" />
+            <span className="truncate">{currentScripture.name}</span>
           </button>
 
           {username ? (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 sm:gap-3">
               <div className="hidden sm:flex flex-col items-end">
                 <span className="text-xs font-medium text-gray-500">Welcome</span>
                 <span className="text-sm font-semibold text-gray-800">{username}</span>
@@ -767,7 +768,7 @@ function GitaApp() {
           ) : (
             <button 
               onClick={() => setShowLoginModal(true)}
-              className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-full font-medium transition-all shadow-md hover:shadow-lg"
+              className="flex items-center gap-1.5 sm:gap-2 bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 sm:px-4 rounded-full text-sm sm:text-base font-medium transition-all shadow-md hover:shadow-lg"
             >
               <UserIcon className="w-4 h-4" />
               Login
@@ -776,9 +777,9 @@ function GitaApp() {
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto flex">
+      <div className="max-w-6xl mx-auto flex w-full min-w-0">
         {/* Sidebar (Desktop) */}
-        <aside className="hidden md:block w-72 h-[calc(100vh-64px)] overflow-y-auto border-r border-orange-100 p-6 bg-white/50">
+        <aside className="hidden md:block w-60 lg:w-72 shrink-0 h-[calc(100dvh-64px)] sticky top-16 overflow-y-auto border-r border-orange-100 p-4 lg:p-6 bg-white/50">
           <div className="mb-8">
             <h2 className="text-sm font-bold text-orange-800 uppercase tracking-widest mb-4">Library</h2>
             <div className="space-y-1">
@@ -824,18 +825,18 @@ function GitaApp() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-4 md:p-10">
-          <div className="max-w-2xl mx-auto">
+        <main className="flex-1 min-w-0 w-full p-3 sm:p-4 md:p-8 lg:p-10">
+          <div className="max-w-2xl mx-auto w-full min-w-0">
             {/* Navigation Info */}
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex flex-col">
-                <span className="text-orange-600 font-bold text-sm uppercase tracking-widest">{currentScripture.name}</span>
-                <h2 className="text-2xl font-extrabold text-gray-900">{currentScripture.sectionLabel} {currentSection}, Verse {currentVerseNum}</h2>
+            <div className="flex flex-wrap items-end justify-between gap-3 mb-4 sm:mb-8">
+              <div className="flex flex-col min-w-0">
+                <span className="text-orange-600 font-bold text-xs sm:text-sm uppercase tracking-widest">{currentScripture.name}</span>
+                <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900">{currentScripture.sectionLabel} {currentSection}, Verse {currentVerseNum}</h2>
               </div>
               {userData?.lastRead && (
-                <div className="flex items-center gap-2 text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full font-medium">
-                  <History className="w-3 h-3" />
-                  Last read: {SCRIPTURES.find(s => s.id === userData.lastRead.scriptureId)?.name}, {userData.lastRead.section}:{userData.lastRead.verse}
+                <div className="flex items-center gap-2 text-xs bg-orange-100 text-orange-800 px-3 py-1.5 rounded-full font-medium max-w-full">
+                  <History className="w-3 h-3 shrink-0" />
+                  <span className="truncate">Last read: {SCRIPTURES.find(s => s.id === userData.lastRead.scriptureId)?.name}, {userData.lastRead.section}:{userData.lastRead.verse}</span>
                 </div>
               )}
             </div>
@@ -847,22 +848,22 @@ function GitaApp() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-white rounded-3xl shadow-xl shadow-orange-200/50 border border-orange-100 overflow-hidden"
+                className="bg-white rounded-3xl shadow-xl shadow-orange-200/50 border border-orange-100 w-full max-w-full"
               >
-                <div className="p-8 md:p-12">
+                <div className="p-4 sm:p-8 md:p-12">
                   {fetchingVerse ? (
                     <div className="py-20 flex flex-col items-center justify-center gap-4">
                       <Loader2 className="w-10 h-10 text-orange-400 animate-spin" />
                       <p className="text-orange-800 font-medium animate-pulse">Fetching divine wisdom...</p>
                     </div>
                   ) : verse ? (
-                    <div className="space-y-10">
+                    <div className="space-y-6 sm:space-y-10">
                       <div className="text-center">
-                        <p className="text-3xl md:text-4xl font-serif text-orange-900 leading-relaxed mb-6">
+                        <p className="verse-copy text-[1.35rem] sm:text-3xl md:text-4xl font-serif text-orange-900 leading-relaxed mb-4 sm:mb-6">
                           {verse.sanskrit}
                         </p>
                         {verse.transliteration && (
-                          <p className="text-lg text-gray-500 italic font-serif">
+                          <p className="verse-copy text-sm sm:text-base md:text-lg text-gray-500 italic font-sans leading-relaxed">
                             {verse.transliteration}
                           </p>
                         )}
@@ -871,8 +872,8 @@ function GitaApp() {
                       <div className="h-px bg-gradient-to-r from-transparent via-orange-200 to-transparent" />
                       
                       <div>
-                        <h3 className="text-xs font-bold text-orange-800 uppercase tracking-widest mb-4">English Meaning</h3>
-                        <p className="text-xl text-gray-800 leading-relaxed font-medium">
+                        <h3 className="text-xs font-bold text-orange-800 uppercase tracking-widest mb-3 sm:mb-4">English Meaning</h3>
+                        <p className="verse-copy text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed font-medium">
                           {verse.english}
                         </p>
                       </div>
@@ -885,19 +886,19 @@ function GitaApp() {
                 </div>
 
                 {/* Footer Controls */}
-                <div className="bg-orange-50/50 border-t border-orange-100 p-6 flex items-center justify-between">
+                <div className="sticky bottom-0 z-30 bg-orange-50/95 backdrop-blur-sm border-t border-orange-100 px-2 py-3 sm:p-6 flex items-center justify-between gap-1 sm:gap-2 rounded-b-3xl">
                   <button
                     onClick={prevVerse}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-orange-100 text-orange-800 font-bold transition-all disabled:opacity-30"
+                    className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-xl hover:bg-orange-100 text-orange-800 font-bold transition-all disabled:opacity-30 shrink-0"
                     disabled={currentSection === '1' && currentVerseNum === '1'}
                   >
                     <ChevronLeft className="w-5 h-5" />
-                    Previous
+                    <span className="hidden sm:inline">Previous</span>
                   </button>
                   
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                     {/* Verse counter */}
-                    <span className="text-sm font-bold text-orange-900">
+                    <span className="text-xs sm:text-sm font-bold text-orange-900 tabular-nums whitespace-nowrap">
                       {currentVerseNum} / {maxVerses}
                     </span>
 
@@ -915,7 +916,7 @@ function GitaApp() {
                           'Listen to verse recitation'
                         }
                         className={`
-                          relative flex items-center justify-center w-12 h-12 rounded-full
+                          relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full shrink-0
                           font-bold transition-all duration-200 shadow-md
                           ${audioState === 'playing'
                             ? 'bg-orange-600 text-white shadow-orange-300 scale-105'
@@ -956,7 +957,7 @@ function GitaApp() {
                         onClick={handleShareVerse}
                         title={copiedLink ? "Link copied to clipboard!" : "Share this verse"}
                         className={`
-                          relative flex items-center justify-center w-12 h-12 rounded-full
+                          relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full shrink-0
                           font-bold transition-all duration-200 shadow-md border
                           ${copiedLink
                             ? 'bg-green-600 text-white border-green-600 scale-105 shadow-green-200'
@@ -975,10 +976,10 @@ function GitaApp() {
 
                   <button
                     onClick={nextVerse}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-orange-100 text-orange-800 font-bold transition-all disabled:opacity-30"
+                    className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-xl hover:bg-orange-100 text-orange-800 font-bold transition-all disabled:opacity-30 shrink-0"
                     disabled={parseInt(currentSection) === currentScripture.sections && parseInt(currentVerseNum) === maxVerses}
                   >
-                    Next
+                    <span className="hidden sm:inline">Next</span>
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
@@ -986,12 +987,12 @@ function GitaApp() {
             </AnimatePresence>
 
             {/* Verse Selector */}
-            <div className="mt-8 flex flex-wrap justify-center gap-2">
+            <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-full">
               {Array.from({ length: Math.min(maxVerses, 100) }, (_, i) => (i + 1).toString()).map(v => (
                 <button
                   key={v}
                   onClick={() => setCurrentVerseNum(v)}
-                  className={`w-10 h-10 rounded-lg text-xs font-bold transition-all ${
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg text-xs font-bold transition-all ${
                     currentVerseNum === v 
                       ? 'bg-orange-600 text-white shadow-md' 
                       : 'bg-white hover:bg-orange-100 text-gray-600 border border-orange-50'
@@ -1007,7 +1008,7 @@ function GitaApp() {
       </div>
 
       {/* ── Footer ── */}
-      <footer className="bg-white border-t border-orange-100 py-6 px-4">
+      <footer className="bg-white border-t border-orange-100 py-6 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Brand */}
           <div className="flex items-center gap-2">
@@ -1017,7 +1018,7 @@ function GitaApp() {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-5">
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" title="YouTube"
                className="text-gray-400 hover:text-red-600 transition-colors duration-200">
               <Youtube className="w-5 h-5" />
@@ -1140,7 +1141,7 @@ function GitaApp() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 bottom-0 w-80 bg-white z-[60] shadow-2xl md:hidden flex flex-col"
+              className="fixed top-0 left-0 bottom-0 w-[min(20rem,100%)] bg-white z-[60] shadow-2xl md:hidden flex flex-col"
             >
               <div className="p-6 border-b border-orange-50 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -1162,6 +1163,7 @@ function GitaApp() {
                           setCurrentScripture(s);
                           setCurrentSection('1');
                           setCurrentVerseNum('1');
+                          setShowSidebar(false);
                         }}
                         className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${
                           currentScripture.id === s.id 
