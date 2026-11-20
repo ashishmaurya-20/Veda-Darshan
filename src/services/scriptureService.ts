@@ -19,7 +19,7 @@ export const SCRIPTURES = [
   { id: 'isha_upanishad',           name: 'Isha Upanishad',           sections: 1,  sectionLabel: 'Section' },
   { id: 'kena_upanishad',           name: 'Kena Upanishad',           sections: 4,  sectionLabel: 'Khanda' },
   { id: 'katha_upanishad',          name: 'Katha Upanishad',          sections: 6,  sectionLabel: 'Valli' },
-  { id: 'mundaka_upanishad',        name: 'Mundaka Upanishad',        sections: 3,  sectionLabel: 'Mundaka' },
+  { id: 'mundaka_upanishad',        name: 'Mundaka Upanishad',        sections: 6,  sectionLabel: 'Mundaka' },
   { id: 'mandukya_upanishad',       name: 'Mandukya Upanishad',       sections: 1,  sectionLabel: 'Section' },
   { id: 'taittiriya_upanishad',     name: 'Taittiriya Upanishad',     sections: 3,  sectionLabel: 'Valli' },
   { id: 'aitareya_upanishad',       name: 'Aitareya Upanishad',       sections: 3,  sectionLabel: 'Adhyaya' },
