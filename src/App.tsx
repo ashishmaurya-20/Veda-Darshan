@@ -16,10 +16,8 @@ import {
   ShieldCheck,
   Heart,
   Youtube,
-  Linkedin,
   Instagram,
   Facebook,
-  Twitter,
   Volume2,
   VolumeX,
   Loader as LoaderIcon,
@@ -63,6 +61,15 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
     }
     return this.props.children;
   }
+}
+
+// Official X (formerly Twitter) brand icon
+function XIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
 }
 
 interface UserData {
@@ -1019,25 +1026,41 @@ function GitaApp() {
 
           {/* Social Icons */}
           <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-5">
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" title="YouTube"
-               className="text-gray-400 hover:text-red-600 transition-colors duration-200">
+            <a 
+              href="https://www.youtube.com/channel/UCPmzLjQ6oKMPpbSwRH4rMMg" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="YouTube"
+              className="text-gray-400 hover:text-red-600 transition-colors duration-200"
+            >
               <Youtube className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn"
-               className="text-gray-400 hover:text-blue-700 transition-colors duration-200">
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"
-               className="text-gray-400 hover:text-pink-600 transition-colors duration-200">
+            <a 
+              href="https://www.instagram.com/vedadarshan.official/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="Instagram"
+              className="text-gray-400 hover:text-pink-600 transition-colors duration-200"
+            >
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"
-               className="text-gray-400 hover:text-blue-600 transition-colors duration-200">
+            <a 
+              href="https://www.facebook.com/profile.php?id=61596767531624" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="Facebook"
+              className="text-gray-400 hover:text-blue-600 transition-colors duration-200"
+            >
               <Facebook className="w-5 h-5" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter / X"
-               className="text-gray-400 hover:text-sky-500 transition-colors duration-200">
-              <Twitter className="w-5 h-5" />
+            <a 
+              href="https://x.com/vedadarshanoffi" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="X (formerly Twitter)"
+              className="text-gray-400 hover:text-gray-900 transition-colors duration-200"
+            >
+              <XIcon className="w-4 h-4" />
             </a>
           </div>
 
